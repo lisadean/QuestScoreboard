@@ -20,9 +20,51 @@ namespace QuestScoreboard
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int score = 0;
+        bool isFullScreen = false;
+
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            Key key = e.Key;
+            string keyString = key.ToString();
+
+            if (key == Key.A)
+            {
+                score += 10;
+                labelScore.Content = score;
+            }
+            else if (key == Key.B)
+            {
+                score -= 5;
+                labelScore.Content = score;
+            }
+            else if (key == Key.LeftShift)
+            {
+                //labelScore.Content = e.Key.ToString();
+                if (!isFullScreen)
+                {
+                    this.WindowStyle = WindowStyle.None;
+                    this.WindowState = WindowState.Maximized;
+                    isFullScreen = !isFullScreen;
+                }
+                else
+                {
+                    this.WindowStyle = WindowStyle.SingleBorderWindow;
+                    this.WindowState = WindowState.Normal;
+                    isFullScreen = !isFullScreen;
+                }
+            }
+        }
+
     }
 }

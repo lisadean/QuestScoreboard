@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuestScoreboard"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="350" Width="525" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp">
+    <Grid Background="Red">
+        <Label x:Name="labelScore" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Verdana" FontSize="120" Foreground="White"/>
     </Grid>
 </Window>
